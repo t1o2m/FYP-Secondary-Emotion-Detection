@@ -1,8 +1,5 @@
-#TODO Error checking
-#TODO Escape function
 import csv
-
-#annotation categories
+#emotion category
 annotation_list = ['suffering', 'sadness', 'disappointment',
                'shame', 'neglect', 'sympathy', 'unclassifiable']
 read_data = []
@@ -12,7 +9,6 @@ input_file = input()
 
 #Reading data from .csv file
 with open(input_file) as csv_file:
-
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
 
@@ -28,8 +24,7 @@ for row in read_data:
     print(row)
     choice = 0
 
-    while 0 >= choice or len(annotation_list) < choice or choice == 9:
-         
+    while 0 >= choice or len(annotation_list) < choice or choice == 9 or choice == 7:
             try:
                 choice = int(input('Select annotation 0. Suffering, 1. Sadness,\n 2. Dissapointment, 3. Shame,\n 4. Neglect, 5. Sympathy,\n 6. Unclassifiable, del. Remove data point \n exit to exit \n'))
                 if choice == 9:
@@ -52,13 +47,13 @@ for row in read_data:
     
     if choice == 9:
         break
-
 #writing to annotated data to .csv file
+
 with open("output_data.csv", "w", newline="") as csv_file:
     writer = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
     line_count = 0
-
     for row in read_data:
         writer.writerow(row)
         line_count += 1
+        
 print(line_count)
