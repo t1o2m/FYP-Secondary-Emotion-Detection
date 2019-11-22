@@ -27,6 +27,7 @@ for submission in hot_dep:
         reddit_data = {'id':submission.id, 'author':submission.name, 'text':sentences} 
         reddit_data_list.append(reddit_data)
 
+#Method for formatting list of strings (removing commas)
 
 #csv writer with formatting
 with open ('redditData.csv', 'w', newline='') as f:
@@ -40,6 +41,8 @@ with open ('redditData.csv', 'w', newline='') as f:
         reddit_author = tools.get_value_tostring(reddit_data, 'author')
         reddit_sentence_list = tools.get_value_tolist(reddit_data, 'text')
         
+        #print("#######", reddit_sentence_list[1])
+
         for sentence in reddit_sentence_list:
             writer.writerow({'id': reddit_id, 'author': reddit_author, 'text':sentence} )
 
