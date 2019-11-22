@@ -7,8 +7,8 @@ tools = reddit_tools
 
 reddit = praw.Reddit(client_id='XVyMfJI3msk0-g',
                     client_secret='ZGGcc0zAimZgQ8oDZwiwx-zogCo',
-                    username='AwkwardDragonfruit1',
-                    password='548AJimpGKvRFrF',
+                    username='',
+                    password='',
                     user_agent='fypscraperv1')
 subreddit = reddit.subreddit('depression')
 hot_dep = subreddit.hot(limit=30)
