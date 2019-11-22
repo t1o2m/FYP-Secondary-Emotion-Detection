@@ -1,12 +1,12 @@
 import csv
-#emotion category
+#annotation categories
 annotation_list = ['suffering', 'sadness', 'disappointment',
                'shame', 'neglect', 'sympathy', 'unclassifiable']
-read_data = []
 
-print("input file path...")
+print("Input file path...")
 input_file = input()
 
+read_data = []
 #Reading data from .csv file
 with open(input_file) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -19,8 +19,7 @@ with open(input_file) as csv_file:
     print(f'Processed {line_count} lines.')
 
 # Annotating list of data using user input
-for row in read_data:    
-    
+for row in read_data:        
     print(row)
     choice = 0
 
@@ -52,8 +51,9 @@ for row in read_data:
 with open("output_data.csv", "w", newline="") as csv_file:
     writer = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
     line_count = 0
+
     for row in read_data:
         writer.writerow(row)
         line_count += 1
-        
+
 print(line_count)
